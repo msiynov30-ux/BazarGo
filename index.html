@@ -28,15 +28,13 @@
     <div class="container topline-inner">
       <p>
         <span class="topline-star">✦</span>
-        Покупай рядом. Продавай легко.
+        <span data-i18n="topline">Покупай рядом. Продавай легко.</span>
       </p>
-      <button
-        class="topline-city"
-        id="city-button"
-        type="button"
-      >
-        Кыргызстан <span>⌄</span>
-      </button>
+      <div class="topline-right">
+        <button class="topline-city" id="city-button" type="button">
+          <span data-i18n="country">Кыргызстан</span> <span>⌄</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -85,8 +83,28 @@
         >
         <button type="submit">Найти</button>
       </form>
-
       <nav class="header-actions" aria-label="Основная навигация">
+        <div class="language-switcher">
+          <button class="language-button" id="language-button" type="button" aria-haspopup="true" aria-expanded="false">
+            <span id="language-code">RU</span><span>⌄</span>
+          </button>
+          <div class="language-menu" id="language-menu" hidden>
+            <button type="button" data-language="ru">Русский</button>
+            <button type="button" data-language="ky">Кыргызча</button>
+            <button type="button" data-language="en">English</button>
+          </div>
+        </div>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-label="Включить тёмную тему"
+          title="Сменить тему"
+        >
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+
         <button
           class="header-action"
           id="favorites-button"
@@ -123,6 +141,26 @@
   </header>
 
   <main id="home">
+    <section class="favorites-page container" id="favorites-page" hidden>
+      <div class="favorites-page-heading">
+        <button class="favorites-back" id="favorites-back" type="button" aria-label="Вернуться на главную">
+          ← <span>Назад</span>
+        </button>
+        <div>
+          <p class="section-eyebrow">ВАШИ НАХОДКИ</p>
+          <h1 id="favorites-page-title">Избранное <span class="title-spark">✳</span></h1>
+        </div>
+      </div>
+      <p class="favorites-page-caption" id="favorites-page-caption">0 товаров</p>
+      <div class="favorites-page-grid" id="favorites-page-grid"></div>
+      <div class="favorites-empty" id="favorites-empty" hidden>
+        <span>♡</span>
+        <h2>Пока нет избранных товаров</h2>
+        <p>Нажмите сердечко на товаре, чтобы сохранить его здесь.</p>
+        <button class="button button-primary" id="favorites-browse" type="button">Перейти к товарам</button>
+      </div>
+    </section>
+
     <!-- Intro banner -->
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
