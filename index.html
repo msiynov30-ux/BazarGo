@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f4">
+  <meta
+    name="description"
+    content="BazarGo — маркетплейс рядом. Одежда, косметика, телефоны и другие товары в Кыргызстане."
+  >
+  <title>BazarGo</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main styles -->
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- Small announcement at the top of the page -->
+  <div class="topline">
+    <div class="container topline-inner">
+      <p>
+        <span class="topline-star">✦</span>
+        Покупай рядом. Продавай легко.
+      </p>
+      <button
+        class="topline-city"
+        id="city-button"
+        type="button"
+      >
+        Кыргызстан <span>⌄</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main navigation and product search -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="#home"
+        aria-label="BazarGo — главная"
+      >
+        <span class="brand-mark">b</span>
+        <span class="brand-word">
+          bazar<span>go</span><i>.</i>
+        </span>
+      </a>
+
+      <button
+        class="location-button"
+        id="location-button"
+        type="button"
+      >
+        <span class="location-pin" aria-hidden="true">⌖</span>
+        <span class="location-copy">
+          <small>Ваш город</small>
+          <strong id="selected-city">Бишкек</strong>
+        </span>
+        <span class="location-chevron">⌄</span>
+      </button>
+
+      <form
+        class="search-form"
+        id="search-form"
+        role="search"
+      >
+        <span class="search-symbol" aria-hidden="true">⌕</span>
+        <label class="visually-hidden" for="search-input">
+          Поиск товаров
+        </label>
+        <input
+          id="search-input"
+          name="q"
+          type="search"
+          placeholder="Что ищем? Например, телефон или куртку"
+          autocomplete="off"
+        >
+        <button type="submit">Найти</button>
+      </form>
+
+      <nav class="header-actions" aria-label="Основная навигация">
+        <button
+          class="header-action"
+          id="favorites-button"
+          type="button"
+        >
+          <span class="header-action-icon">
+            ♡
+            <i class="action-count" id="favorites-count">0</i>
+          </span>
+          <span>Избранное</span>
+        </button>
+
+        <button
+          class="header-action"
+          id="cart-button"
+          type="button"
+        >
+          <span class="header-action-icon">
+            ▢
+            <i class="action-count" id="cart-count">0</i>
+          </span>
+          <span>Корзина</span>
+        </button>
+
+        <button
+          class="sign-in-button"
+          id="sign-in-button"
+          type="button"
+        >
+          Войти
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Intro banner -->
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="online-dot"></span>
+          МАРКЕТПЛЕЙС КЫРГЫЗСТАНА
+        </p>
+
+        <h1 id="hero-title">
+          Хорошие вещи<br>
+          находятся <em>рядом.</em>
+        </h1>
+
+        <p class="hero-description">
+          Покупай любимое, открывай новое и продавай то, что больше не нужно.
+          Всё просто и по-соседски.
+        </p>
+
+        <div class="hero-buttons">
+          <button
+            class="button button-primary"
+            data-open-sell
+            type="button"
+          >
+            ＋ Разместить объявление
+          </button>
+          <a class="button-link" href="#catalog">
+            Перейти к товарам <span>↘</span>
+          </a>
+        </div>
+
+        <div class="hero-social-proof">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>А</span>
+            <span>Н</span>
+            <span>Б</span>
+            <span>+</span>
+          </div>
+          <p>
+            <strong>Выбирают каждый день</strong><br>
+            покупатели по всему Кыргызстану
+          </p>
+        </div>
+      </div>
+
+      <!-- Decorative shopping bag illustration -->
+      <div class="hero-visual" aria-label="Иллюстрация пакета с находками">
+        <div class="hero-disc"></div>
+        <div class="hero-orbit hero-orbit-one"></div>
+        <div class="hero-orbit hero-orbit-two"></div>
+
+        <div class="hero-sticker">
+          НАХОДКИ<br>
+          <strong>РЯДОМ</strong> ✦
+        </div>
+
+        <div class="shopping-bag">
+          <span class="bag-handle"></span>
+          <span class="bag-brand">bg<span>.</span></span>
+          <span class="bag-caption">good things<br>inside</span>
+          <span class="bag-flower">✿</span>
+        </div>
+
+        <div class="floating-note note-top">
+          <span>✦</span>
+          <strong>Это твоё?</strong>
+          <small>Уже скоро — да</small>
+        </div>
+
+        <div class="floating-note note-bottom">
+          <span class="note-heart">♡</span>
+          <small>Находка уже<br>ждёт тебя</small>
+        </div>
+      </div>
+
+      <div class="hero-index">
+        <span>01</span>
+        <i></i>
+        <span>Листай и находи</span>
+        <span class="hero-scroll">↓</span>
+      </div>
+    </section>
+
+    <!-- Product categories are inserted by script.js -->
+    <section
+      class="categories-section container"
+      aria-labelledby="categories-title"
+    >
+      <div class="section-heading">
+        <div>
+          <p class="section-eyebrow">ВЫБИРАЙ СВОЁ</p>
+          <h2 id="categories-title">Что ищем сегодня?</h2>
+        </div>
+        <a href="#catalog" class="quiet-link">
+          Все категории <span>↗</span>
+        </a>
+      </div>
+      <div
+        class="category-grid"
+        id="category-grid"
+        aria-label="Категории товаров"
+      ></div>
+    </section>
+
+    <!-- Search results and product filters -->
+    <section
+      class="catalog-section container"
+      id="catalog"
+      aria-labelledby="catalog-title"
+    >
+      <div class="catalog-heading">
+        <div>
+          <p class="section-eyebrow">ТВОЯ СЛЕДУЮЩАЯ НАХОДКА</p>
+          <h2 id="catalog-title">
+            Популярное рядом <span class="title-spark">✳</span>
+          </h2>
+        </div>
+
+        <div class="catalog-controls">
+          <div
+            class="filter-tabs"
+            id="condition-tabs"
+            role="group"
+            aria-label="Состояние товара"
+          >
+            <button
+              class="filter-tab is-active"
+              data-condition="all"
+              type="button"
+            >
+              Все
+            </button>
+            <button
+              class="filter-tab"
+              data-condition="new"
+              type="button"
+            >
+              Новое
+            </button>
+            <button
+              class="filter-tab"
+              data-condition="used"
+              type="button"
+            >
+              Б/у
+            </button>
+          </div>
+
+          <label class="visually-hidden" for="sort-select">
+            Сортировка товаров
+          </label>
+          <select id="sort-select" class="sort-select">
+            <option value="popular">Сначала популярные</option>
+            <option value="cheap">Сначала дешевле</option>
+            <option value="expensive">Сначала дороже</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="catalog-subheading">
+        <p id="results-caption">Свежие объявления</p>
+        <button
+          class="reset-button"
+          id="reset-button"
+          type="button"
+        >
+          Сбросить фильтры <span>×</span>
+        </button>
+      </div>
+
+      <div
+        class="product-grid"
+        id="product-grid"
+        aria-live="polite"
+      ></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <span>⌕</span>
+        <h3>Пока ничего не нашли</h3>
+        <p>Попробуй другой запрос или сбрось фильтры.</p>
+        <button
+          class="button button-primary"
+          data-reset
+          type="button"
+        >
+          Показать все товары
+        </button>
+      </div>
+
+      <button
+        class="load-more-button"
+        id="load-more-button"
+        type="button"
+      >
+        Показать ещё <span>↓</span>
+      </button>
+    </section>
+
+    <!-- Call to action for sellers -->
+    <section class="sell-banner container" aria-labelledby="sell-title">
+      <div class="banner-decoration" aria-hidden="true">✳</div>
+      <div class="banner-copy">
+        <p class="banner-eyebrow">ЕСТЬ ЧТО ПРОДАТЬ?</p>
+        <h2 id="sell-title">
+          Освободи место.<br>
+          Найди нового хозяина.
+        </h2>
+        <p>
+          Создай объявление за пару минут — покупатель может быть совсем рядом.
+        </p>
+        <button
+          class="button banner-button"
+          data-open-sell
+          type="button"
+        >
+          Начать продавать <span>↗</span>
+        </button>
+      </div>
+
+      <div class="banner-art" aria-hidden="true">
+        <div class="banner-circle"></div>
+        <div class="banner-box">
+          bazar<span>go.</span>
+          <small>пора делиться</small>
+        </div>
+        <span class="banner-flower">✿</span>
+        <span class="banner-spark">✦</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <a class="brand footer-brand" href="#home">
+      <span class="brand-mark">b</span>
+      <span class="brand-word">bazar<span>go</span><i>.</i></span>
+    </a>
+    <p>Маркетплейс, который ближе.</p>
+    <p class="footer-love">Сделано с <span>♥</span> в Кыргызстане</p>
+  </footer>
+
+  <!-- Small messages and reusable modal window -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <section
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <button
+        class="modal-close"
+        id="modal-close"
+        type="button"
+        aria-label="Закрыть окно"
+      >
+        ×
+      </button>
+      <div id="modal-body"></div>
+    </section>
+  </div>
+</body>
+</html>
